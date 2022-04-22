@@ -1,4 +1,4 @@
-"strict mode"
+"strict mode";
 //challenge1
 
 // const ds1=85;
@@ -36,7 +36,7 @@
 //         return billValue*0.15;
 //     }
 //     else if(billValue>300)
-//     { 
+//     {
 //         return billValue*0.2;
 //     }
 //     else{
@@ -79,23 +79,31 @@
 // console.log(jonas.getSummary());
 
 //Challenge 3
-const markDetails={
-    fullName:"Mark",
-    mass:78,
-    height:1.69,
-    calcBMI: function(){
-        this.bmi=this.mass/this.height**2;
-        return this.bmi;
-    }
-}
-const johnDetails={
-    fullName:"Mark",
-    mass:92,
-    height:1.95,
-    calcBMI: function(){
-        this.bmi=this.mass/this.height**2;
-        return this.bmi;
-    }
-}
+const markDetails = {
+  fullName: "Mark",
+  mass: 78,
+  height: 1.69,
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
+};
+const johnDetails = {
+  fullName: "Mark",
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
+};
 
-console.log(markDetails.calcBMI()>johnDetails.calcBMI()?`Mark's BMI(${Math.floor(markDetails.calcBMI())}) is higher than John's (${Math.floor(johnDetails.calcBMI())})`:`John's BMI(${Math.floor(johnDetails.calcBMI())} is higher than Mark's (${Math.floor(markDetails.calcBMI())})`)
+console.log(
+  markDetails.calcBMI() > johnDetails.calcBMI()
+    ? `Mark's BMI(${Math.floor(
+        markDetails.calcBMI()
+      )}) is higher than John's (${Math.floor(johnDetails.calcBMI())})`
+    : `John's BMI(${Math.floor(
+        johnDetails.calcBMI()
+      )} is higher than Mark's (${Math.floor(markDetails.calcBMI())})`
+);
