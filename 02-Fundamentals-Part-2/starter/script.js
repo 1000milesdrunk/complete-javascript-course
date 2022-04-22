@@ -107,3 +107,4 @@ console.log(
         johnDetails.calcBMI()
       )} is higher than Mark's (${Math.floor(markDetails.calcBMI())})`
 );
+console.log();
