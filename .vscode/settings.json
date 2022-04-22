@@ -1,5 +1,6 @@
 {
   "livePreview.openPreviewTarget": "External Browser",
   "livePreview.showServerStatusNotifications": true,
-  "liveServer.settings.CustomBrowser": "chrome"
+  "liveServer.settings.CustomBrowser": "chrome",
+  "cSpell.words": ["btwn"]
 }
