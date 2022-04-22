@@ -16,6 +16,8 @@ const calcAverage=(s1,s2,s3)=>{
 const avgDolphins=calcAverage(ds1,ds2,ds3);
 const avgKoalas=calcAverage(ks1,ks2,ks3);
 
+console.log(avgDolphins,avgKoalas);
+
 checkWinner(avgDolphins,avgKoalas);
 
 function checkWinner(avgDolphins, avgKoalas){
@@ -23,9 +25,6 @@ function checkWinner(avgDolphins, avgKoalas){
         console.log(`Dolphins Win`);
     }else if(avgKoalas/2 >= avgDolphins){
         console.log(`Koalas Win`);
-    }
-    else{
-        console.log("draw")
     }
 }
 
