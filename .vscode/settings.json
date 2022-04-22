@@ -1,0 +1,5 @@
+{
+  "livePreview.openPreviewTarget": "External Browser",
+  "livePreview.showServerStatusNotifications": true,
+  "liveServer.settings.CustomBrowser": "chrome"
+}
