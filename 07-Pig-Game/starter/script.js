@@ -22,6 +22,9 @@ score1El.textContent = 0;
 //change the dice visibility by adding the hidden class
 diceEl.classList.add('hidden');
 
+//have a separate variable to store the current player
+//set to zero because the first player is player1
+let activePlayer = 0;
 //when button is clicked to roll the dice add a eventlistener
 btnRoll.addEventListener('click', function () {
   //changing the dice visibility back to normal by removing hidden class
@@ -32,12 +35,15 @@ btnRoll.addEventListener('click', function () {
 
   //change the dice image by using ${} notation according to the dice number
   document.querySelector('.dice').src = `dice-${dice}.png`;
-  //if teh dice is not 1 then add the currentScore var with the dice value
+  //if the dice is not 1 then add the currentScore var with the dice value
   if (dice !== 1) {
     //todo:Need to change according to the current player
     currentScore += dice;
-    //change the textcontent of the current score of the active player
+    //change the textContent of the current score of the active player
     currentScore0El.textContent = currentScore;
   } else {
+    document.getElementById(`current--${activePlayer}`).textContent = 0;
+    currentScore = 0;
+    activePlayer = activePlayer === 0 ? 1 : 0;
   }
 });
