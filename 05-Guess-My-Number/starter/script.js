@@ -40,7 +40,7 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.message').textContent = 'Too Low';
     //if the n is less then reduce the score until zero
     if (score >= 1) {
-      document.querySelector('.score').textContent = score--;
+      document.querySelector('.score').textContent = --score;
     } else {
       document.querySelector('.message').textContent = 'You Lost';
       document.querySelector('.score').textContent = score--;
@@ -50,7 +50,7 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.message').textContent = 'Too High';
     //if the n is less then reduce the score until zero
     if (score >= 1) {
-      document.querySelector('.score').textContent = score--;
+      document.querySelector('.score').textContent = --score;
     } else {
       document.querySelector('.message').textContent = 'You Lost';
       document.querySelector('.score').textContent = score--;
