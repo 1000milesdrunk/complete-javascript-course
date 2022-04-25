@@ -9,6 +9,15 @@ const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('btn--hold');
 
+//select the players with classnames to change the class names of the two players by using toggle
+//so we are storing the element of both players here
+
+const player0El = document.querySelector('.player--0');
+const player0E2 = document.querySelector('.player--1');
+
+//the total scores of both the players are stored in an array
+const score = [0, 0];
+
 //to change the content of the currentScore of the active player
 const currentScore0El = document.getElementById('current--0');
 const currentScore1El = document.getElementById('current--1');
@@ -37,13 +46,27 @@ btnRoll.addEventListener('click', function () {
   document.querySelector('.dice').src = `dice-${dice}.png`;
   //if the dice is not 1 then add the currentScore var with the dice value
   if (dice !== 1) {
-    //todo:Need to change according to the current player
     currentScore += dice;
+    //change the current score of the active player
+    document.getElementById(`current--${activePlayer}`).textContent =
+      currentScore;
     //change the textContent of the current score of the active player
-    currentScore0El.textContent = currentScore;
+    //this is only for the player0
+    // currentScore0El.textContent = currentScore;
   } else {
     document.getElementById(`current--${activePlayer}`).textContent = 0;
+    //as we switch the player the current score must be set to zero
     currentScore = 0;
+    //if active player is 0 it will switch to 1 and vice versa
     activePlayer = activePlayer === 0 ? 1 : 0;
+
+    //use the toggle feature in classlist to change the class names
+    //toggle removes the className if it is present and adds it if it is not present
+    //player-active has the css property to change the background color of the active player so we are using it to toggle
+    //we use toggle on both players so that its always present in only one player
+    player0El.classList.toggle('player--active');
+    player0E2.classList.toggle('player--active');
   }
 });
+
+btnHold.addEventListener('click', function () {});
