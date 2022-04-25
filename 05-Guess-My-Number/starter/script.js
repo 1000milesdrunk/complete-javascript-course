@@ -2,6 +2,7 @@
 
 //set score to 20 at the start
 let score = 20;
+let highscore = 0;
 //generate a random number
 /*Math.random generates a number btwn 0 and 1 so multiply it by 20
 and trunc it to get only integer value then add one since it will be btwn 0 amd 19 */
@@ -22,8 +23,7 @@ document.querySelector('.check').addEventListener('click', function () {
   }
 
   if (n > 20 || n < 0) {
-    document.querySelector('.message').textContent =
-      'Out of Range Enter within 1 to 20';
+    document.querySelector('.message').textContent = 'Out of Range';
     return;
   }
   //check the condition of secretNumber and n
@@ -34,28 +34,45 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.number').textContent = secretNumber;
     document.querySelector('body').style.backgroundColor = 'limegreen';
     document.querySelector('.number').style.width = '30rem';
-
-    //if i/p is too low
-  } else if (n < secretNumber) {
-    document.querySelector('.message').textContent = 'Too Low';
-    //if the n is less then reduce the score until zero
-    if (score >= 1) {
-      document.querySelector('.score').textContent = --score;
-    } else {
-      document.querySelector('.message').textContent = 'You Lost';
-      document.querySelector('.score').textContent = score--;
+    if (score > highscore) {
+      highscore = score;
+      document.querySelector('.highscore').textContent = highscore;
     }
-    //if i/p is too high
-  } else if (n > secretNumber) {
-    document.querySelector('.message').textContent = 'Too High';
+  } //to make the code dry
+  else if (secretNumber !== n) {
+    document.querySelector('.message').textContent =
+      n > secretNumber ? 'Too High' : 'Too Low';
     //if the n is less then reduce the score until zero
     if (score >= 1) {
-      document.querySelector('.score').textContent = --score;
+      score--;
+      document.querySelector('.score').textContent = score;
     } else {
       document.querySelector('.message').textContent = 'You Lost';
-      document.querySelector('.score').textContent = score--;
+      document.querySelector('.score').textContent = score;
     }
   }
+
+  // //if i/p is too low
+  // else if (n < secretNumber) {
+  //   document.querySelector('.message').textContent = 'Too Low';
+  //   //if the n is less then reduce the score until zero
+  //   if (score >= 1) {
+  //     document.querySelector('.score').textContent = --score;
+  //   } else {
+  //     document.querySelector('.message').textContent = 'You Lost';
+  //     document.querySelector('.score').textContent = score--;
+  //   }
+  //   //if i/p is too high
+  // } else if (n > secretNumber) {
+  //   document.querySelector('.message').textContent = 'Too High';
+  //   //if the n is less then reduce the score until zero
+  //   if (score >= 1) {
+  //     document.querySelector('.score').textContent = --score;
+  //   } else {
+  //     document.querySelector('.message').textContent = 'You Lost';
+  //     document.querySelector('.score').textContent = score--;
+  //   }
+  // }
 });
 //on clicking again the game should reset
 document.querySelector('.again').addEventListener('click', function () {

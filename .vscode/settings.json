@@ -2,5 +2,5 @@
   "livePreview.openPreviewTarget": "External Browser",
   "livePreview.showServerStatusNotifications": true,
   "liveServer.settings.CustomBrowser": "chrome",
-  "cSpell.words": ["btwn"]
+  "cSpell.words": ["btwn", "highscore", "limegreen"]
 }
