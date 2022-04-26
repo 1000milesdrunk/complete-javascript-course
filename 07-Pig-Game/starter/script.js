@@ -15,17 +15,44 @@ const btnHold = document.querySelector('.btn--hold');
 const player0El = document.querySelector('.player--0');
 const player1El = document.querySelector('.player--1');
 
-//the total scores of both the players are stored in an array
-const scores = [0, 0];
-
 //to change the content of the currentScore of the active player
 const currentScore0El = document.getElementById('current--0');
 const currentScore1El = document.getElementById('current--1');
+//create a initialization function to call to reset the game for newgame button click
+const init = function () {
+  //add the starting conditions to init
+
+  //add the required code for the new game button to init
+  score0El.textContent = 0;
+  score1El.textContent = 0;
+  scores[0] = 0;
+  scores[1] = 0;
+  player0El.classList.remove('player--winner');
+  player1El.classList.remove('player--winner');
+
+  player0El.classList.add('player--active');
+  player1El.classList.remove('player--active');
+};
+
+//the total scores of both the players are stored in an array
+const scores = [0, 0];
+
 //have a separate variable for storing the current score rolled by the dice
 let currentScore = 0;
 
 //have a variable to account whether the game is playing or not
 let playing = true; //since we are playing at the start
+
+//starting point
+//at the starting point change the total scores of both players to 0
+score0El.textContent = 0;
+score1El.textContent = 0;
+//change the dice visibility by adding the hidden class
+diceEl.classList.add('hidden');
+
+//have a separate variable to store the current player
+//set to zero because the first player is player1
+let activePlayer = 0;
 
 //function to switch player
 function switchPlayer() {
@@ -43,16 +70,6 @@ function switchPlayer() {
   player1El.classList.toggle('player--active');
 }
 
-//starting point
-//at the starting point change the total scores of both players to 0
-score0El.textContent = 0;
-score1El.textContent = 0;
-//change the dice visibility by adding the hidden class
-diceEl.classList.add('hidden');
-
-//have a separate variable to store the current player
-//set to zero because the first player is player1
-let activePlayer = 0;
 //when button is clicked to roll the dice add a eventlistener
 btnRoll.addEventListener('click', function () {
   if (playing) {
@@ -127,13 +144,4 @@ btnHold.addEventListener('click', function () {
 btnNew.addEventListener('click', function () {
   //as the new game is clicked the
   playing = true;
-  score0El.textContent = 0;
-  score1El.textContent = 0;
-  scores[0] = 0;
-  scores[1] = 0;
-  player0El.classList.remove('player--winner');
-  player1El.classList.remove('player--winner');
-
-  player0El.classList.add('player--active');
-  player1El.classList.remove('player--active');
 });
