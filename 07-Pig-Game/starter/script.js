@@ -18,17 +18,30 @@ const player1El = document.querySelector('.player--1');
 //to change the content of the currentScore of the active player
 const currentScore0El = document.getElementById('current--0');
 const currentScore1El = document.getElementById('current--1');
+
+//the variables are inside the function so they need to declared outside but initialized inside the init
+let currentScore, playing, activePlayer;
+
+//the total scores of both the players are stored in an array
+const scores = [0, 0];
 //create a initialization function to call to reset the game for newgame button click
+
 const init = function () {
   //add the starting conditions to init
-  //the total scores of both the players are stored in an array
-  const scores = [0, 0];
+
+  //set the score to [0,0]
+  scores[0] = 0;
+  scores[1] = 0;
+
+  //the current scores of both the players need to become zero at new game
+  currentScore0El.textContent = 0;
+  currentScore1El.textContent = 0;
 
   //have a separate variable for storing the current score rolled by the dice
-  let currentScore = 0;
+  currentScore = 0;
 
   //have a variable to account whether the game is playing or not
-  let playing = true; //since we are playing at the start
+  playing = true; //since we are playing at the start
 
   //starting point
   //at the starting point change the total scores of both players to 0
@@ -39,13 +52,9 @@ const init = function () {
 
   //have a separate variable to store the current player
   //set to zero because the first player is player1
-  let activePlayer = 0;
+  activePlayer = 0;
 
   //add the required code for the new game button to init
-  score0El.textContent = 0;
-  score1El.textContent = 0;
-  scores[0] = 0;
-  scores[1] = 0;
   player0El.classList.remove('player--winner');
   player1El.classList.remove('player--winner');
 
@@ -53,6 +62,8 @@ const init = function () {
   player1El.classList.remove('player--active');
 };
 
+//call init function to start the game
+init();
 //function to switch player
 function switchPlayer() {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -141,6 +152,6 @@ btnHold.addEventListener('click', function () {
   }
 });
 btnNew.addEventListener('click', function () {
-  //as the new game is clicked the
-  playing = true;
+  //as the new game is clicked the function is called
+  init();
 });
