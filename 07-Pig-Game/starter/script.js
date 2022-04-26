@@ -21,6 +21,25 @@ const currentScore1El = document.getElementById('current--1');
 //create a initialization function to call to reset the game for newgame button click
 const init = function () {
   //add the starting conditions to init
+  //the total scores of both the players are stored in an array
+  const scores = [0, 0];
+
+  //have a separate variable for storing the current score rolled by the dice
+  let currentScore = 0;
+
+  //have a variable to account whether the game is playing or not
+  let playing = true; //since we are playing at the start
+
+  //starting point
+  //at the starting point change the total scores of both players to 0
+  score0El.textContent = 0;
+  score1El.textContent = 0;
+  //change the dice visibility by adding the hidden class
+  diceEl.classList.add('hidden');
+
+  //have a separate variable to store the current player
+  //set to zero because the first player is player1
+  let activePlayer = 0;
 
   //add the required code for the new game button to init
   score0El.textContent = 0;
@@ -33,26 +52,6 @@ const init = function () {
   player0El.classList.add('player--active');
   player1El.classList.remove('player--active');
 };
-
-//the total scores of both the players are stored in an array
-const scores = [0, 0];
-
-//have a separate variable for storing the current score rolled by the dice
-let currentScore = 0;
-
-//have a variable to account whether the game is playing or not
-let playing = true; //since we are playing at the start
-
-//starting point
-//at the starting point change the total scores of both players to 0
-score0El.textContent = 0;
-score1El.textContent = 0;
-//change the dice visibility by adding the hidden class
-diceEl.classList.add('hidden');
-
-//have a separate variable to store the current player
-//set to zero because the first player is player1
-let activePlayer = 0;
 
 //function to switch player
 function switchPlayer() {
