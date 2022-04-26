@@ -13,7 +13,7 @@ const btnHold = document.querySelector('.btn--hold');
 //so we are storing the element of both players here
 
 const player0El = document.querySelector('.player--0');
-const player0E2 = document.querySelector('.player--1');
+const player1El = document.querySelector('.player--1');
 
 //the total scores of both the players are stored in an array
 const scores = [0, 0];
@@ -40,7 +40,7 @@ function switchPlayer() {
   //player-active has the css property to change the background color of the active player so we are using it to toggle
   //we use toggle on both players so that its always present in only one player
   player0El.classList.toggle('player--active');
-  player0E2.classList.toggle('player--active');
+  player1El.classList.toggle('player--active');
 }
 
 //starting point
@@ -86,7 +86,7 @@ btnRoll.addEventListener('click', function () {
       // //player-active has the css property to change the background color of the active player so we are using it to toggle
       // //we use toggle on both players so that its always present in only one player
       // player0El.classList.toggle('player--active');
-      // player0E2.classList.toggle('player--active');
+      // player1El.classList.toggle('player--active');
     }
   }
 });
@@ -123,4 +123,17 @@ btnHold.addEventListener('click', function () {
     //we are calling the function switchPlayer to switch the players
     switchPlayer();
   }
+});
+btnNew.addEventListener('click', function () {
+  //as the new game is clicked the
+  playing = true;
+  score0El.textContent = 0;
+  score1El.textContent = 0;
+  scores[0] = 0;
+  scores[1] = 0;
+  player0El.classList.remove('player--winner');
+  player1El.classList.remove('player--winner');
+
+  player0El.classList.add('player--active');
+  player1El.classList.remove('player--active');
 });
