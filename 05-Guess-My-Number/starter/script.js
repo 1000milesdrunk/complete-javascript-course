@@ -17,7 +17,7 @@ document.querySelector('.check').addEventListener('click', function () {
   const n = Number(document.querySelector('.guess').value);
   // console.log(n, typeof n);
   //check if any value is entered if not return
-  if (n == 0) {
+  if (n == '') {
     // document.querySelector('.message').textContent = 'No Number Entered';
     displayMessage('No Number Entered');
     return;
@@ -90,7 +90,6 @@ document.querySelector('.again').addEventListener('click', function () {
   score = 20;
   document.querySelector('.score').textContent = score;
   document.querySelector('.guess').value = '';
-  document;
 });
 
 //to make the code dry and to remove all doc.query.textContent
