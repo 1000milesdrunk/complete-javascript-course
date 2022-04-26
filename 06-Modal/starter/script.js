@@ -1,7 +1,7 @@
 'use strict';
 //Storing the queries in a variable then using the variable access the queries
 
-//modal is the content that needs to be displayes when button is clicked
+//modal is the content that needs to be displays when button is clicked
 const modal = document.querySelector('.modal');
 //hides and blurs the background when button is clicked
 const overlay = document.querySelector('.overlay');
@@ -35,7 +35,7 @@ for (let i = 0; i < btnsOpenModal.length; i++) {
   // overlay.classList.remove('hidden');
 }
 
-//when 'x' button is clicked modal content and the overlay neeeds to be hidden so
+//when 'x' button is clicked modal content and the overlay needs to be hidden so
 //we are adding hidden class to it again
 btnCloseModal.addEventListener('click', () => closeButton());
 // modal.classList.add('hidden');
@@ -56,16 +56,16 @@ function closeButton() {
 
 //there are different types of events like keyup,keydown,...
 
-//when any key is pressed in keyboard a event object is created by javascript anf the function is called
+//when any key is pressed in keyboard a event object is created by javascript and the function is called
 //we can give any name as a parameter to function but we give e to say its a event(even event is acceptable)
 //e contains all the info about the event and since e is a object the properties can be accessed by obj.key
 //to know which key was press e.key will give the key pressed
-document.addEventListener('keydown', function (e) {
+document.addEventListener('keydown', function (event) {
   //return the key pressed in the event
-  console.log(e.key);
+  console.log(event.key);
 
   //it should work only if esc key is pressed and if the content is not hidden
-  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+  if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
     closeButton();
   }
 });
